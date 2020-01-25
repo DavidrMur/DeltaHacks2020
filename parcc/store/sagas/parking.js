@@ -4,20 +4,7 @@ import * as actions from '../actions';
 
 export function* getParkingPending(action){
     try {
-        parkingOptions = [
-            {
-                parkLocation: '26 Haddon Avenue North',
-                walkDistance: '750', // make sure units are right
-                cost: '2.50',
-                googleLink: 'google.ca',
-            },
-            {   
-                parkLocation: '7 Delbrook',
-                walkDistance: '2000', // make sure units are right
-                cost: '0',
-                googleLink: 'google.ca',
-            }
-        ];
+        parkingOptions = [{'Address': '23 Hatt St.', 'lat': 43.2656383, 'lng': -79.9570069, 'Distance': 3.005148165230547}, {'Address': '82 King St. W.', 'lat': 43.2663769, 'lng': -79.9573175, 'Distance': 3.0414508493143426}, {'Address': '22 Bay St. S.', 'lat': 43.2574872, 'lng': -79.87398879999999, 'Distance': 3.796150773076337}]
         yield put(actions.setParkingOptions(parkingOptions));
     } catch (error) {
         console.log(error);

@@ -8,7 +8,7 @@ class parkingSpotsScreen extends Component{
         return(
         <View style={styles.screen}>
             <Text style={styles.heading}>Here are your potential parking spots:</Text>
-            {<Text>{this.props.parkingOptions[0].parkLocation ? this.props.parkingOptions[0].parkLocation : 'nada'}</Text>}
+            {<Text>{this.props.parkingOptions[0].Address ? this.props.parkingOptions[0].Address : 'nada'}</Text>}
             {console.log(this.props.parkingOptions)}
         </View>
     );
