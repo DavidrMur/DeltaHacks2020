@@ -8,11 +8,13 @@ class MainPage extends Component {
       return (
         <View>
             <ImageBackground source={require('../../assets/mainPageImage.png')} style={{width: '100%', height: '100%'}}>
+            <View style={styles.header}>
+                <Image source={require('../../assets/logo.png')}   style={{width: 150, height: 150}}/>
+                <Text style={styles.heading}>Welcome to Parccc</Text>
+            </View>
                 <View style={styles.container}>
-                <Image source={require('../../assets/logo.png')}   style={{width: 100, height: 100}}/>
-                    <Text>Welcome to Parccc</Text>
-                    <View>
-                        <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}}></TextInput>
+                    <View style={{flexDirection:"row"}}>
+                        <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
                         <Button title="GO!"></Button>
                     </View>
                     
@@ -27,10 +29,20 @@ class MainPage extends Component {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flexDirection: "column",
+      flex:1,
       alignItems: 'center',
-      justifyContent: 'center',
     },
+    heading: {
+        fontFamily: "HelveticaNeue-Bold",
+        fontSize: 32,
+    },
+    header:{
+        flexDirection: "column",
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center'
+    }
   });
   
 
