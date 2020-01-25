@@ -15,7 +15,7 @@ class MainPage extends Component {
 
 
     advanceFunction=()=>{
-        this.props.getParkingPending()
+        this.props.getParkingPending();
         this.props.navigation.navigate("parkingSpots")
     }
     render() {

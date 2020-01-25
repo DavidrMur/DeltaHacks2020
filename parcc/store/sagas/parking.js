@@ -4,7 +4,6 @@ import * as actions from '../actions';
 
 export function* getParkingPending(action){
     try {
-        console.log(parkingOptions);
         parkingOptions = [
             {
                 parkLocation: '26 Haddon Avenue North',

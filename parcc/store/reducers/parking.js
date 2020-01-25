@@ -7,6 +7,7 @@ const initialState = {
 
 
 const setParkingOptions = (state, action) => {
+    console.log(action);
     return {...state, parkingOptions: action.payload}
 }
 
