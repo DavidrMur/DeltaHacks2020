@@ -5,10 +5,17 @@ import * as actions from '../../store/actions/index';
 import {AppLoading} from 'expo';
 
 class MainPage extends Component {
-    state={
-        address:"",
-        invalid:true
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      show: false,
+      address:"",
+      invalid:true
     }
+ }
+
+
     advanceFunction=()=>{
         this.props.getParkingPending(this.state.address)
         this.props.navigation.navigate("parkingSpots")
@@ -64,10 +71,16 @@ class MainPage extends Component {
     }
   });
   
+  const mapStateToProps = state => {
+    return {
+        parkingOptions: state.parking.parkingOptions
+    }
+  }
+  
   const mapDispatchToProps = dispatch => {
     return {
-        getParkingPending: () => dispatch(actions.getParkingPending())
+        getParkingPending: (location) => dispatch(actions.getParkingPending(location))
     };
 };
 
-export default connect(null, mapDispatchToProps)(MainPage)
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage)
