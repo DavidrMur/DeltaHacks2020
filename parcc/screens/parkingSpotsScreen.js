@@ -1,11 +1,13 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground} from 'react-native';
 import {AppLoading} from 'expo';
 const parkingSpotsScreen=(props)=>{
     return(
+    <ImageBackground source={require('../assets/mainPageImage.png')} style={{width: '100%', height: '100%'}}>
         <View style={styles.screen}>
             <Text style={styles.heading}>Here are your potential parking spots:</Text>
         </View>
+    </ImageBackground>
     );
 
 }
@@ -13,7 +15,7 @@ const parkingSpotsScreen=(props)=>{
 const styles=StyleSheet.create({
     screen:{
         flex:1,
-        justifyContent:"center",
+        paddingTop:10,
         alignItems:'center'
     },
     heading: {
