@@ -27,18 +27,6 @@ class MainPage extends Component {
                 <Text style={styles.heading}>Welcome to Parccc</Text>
             </View>
                 <View style={styles.container}>
-                <Image source={require('../../assets/logo.png')}   style={{width: 100, height: 100}}/>
-                    <Text>Welcome to Parccc</Text>
-                    {/*<View>
-                        <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}}></TextInput>
-                        <Button title="GO!" onPress={() => this.test()}></Button>
-                        {this.props.parkingOptions[0].location ? (
-                          <Text>Hola</Text>)
-                          : null
-                        }
-                        {<Text>{this.props.parkingOptions && this.props.parkingOptions[0].location}</Text>}
-                        <Text>{this.state.show ? 'hola' : 'no bueno'}</Text>
-                      */} 
                     <View style={{flexDirection:"row"}}>
                         <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
                         <Button title="GO!" onPress={() => this.advanceFunction()}></Button>
