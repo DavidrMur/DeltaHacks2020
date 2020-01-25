@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { TextInput, StyleSheet, Text, View, ImageBackground, Image, Button} from 'react-native';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 
 class MainPage extends Component {
     
     render() {
+      console.log('beep boop');
       return (
         <View>
             <ImageBackground source={require('../../assets/mainPageImage.png')} style={{width: '100%', height: '100%'}}>
@@ -15,7 +18,7 @@ class MainPage extends Component {
                 <View style={styles.container}>
                     <View style={{flexDirection:"row"}}>
                         <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
-                        <Button title="GO!"></Button>
+                        <Button title="GO!" onPress={() => this.props.getParkingPending()}></Button>
                     </View>
                     
                     
@@ -45,5 +48,10 @@ class MainPage extends Component {
     }
   });
   
+  const mapDispatchToProps = dispatch => {
+    return {
+        getParkingPending: () => dispatch(actions.getParkingPending())
+    };
+};
 
-export default MainPage
+export default connect(null, mapDispatchToProps)(MainPage)
