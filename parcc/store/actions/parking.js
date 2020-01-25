@@ -6,3 +6,10 @@ export const getParkingPending = payload => {
         payload: payload
     }
 }
+
+export const setParkingOptions = payload => {
+    return {
+        type: actionTypes.SET_PARKING_OPTIONS,
+        payload: payload
+    }
+}

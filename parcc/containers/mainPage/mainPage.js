@@ -5,11 +5,18 @@ import * as actions from '../../store/actions/index';
 
 
 class MainPage extends Component {
-  
-  state = {
-    location: '1280 main street west'
-  };
-  
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      show: false
+    }
+ }
+  test = () => {
+    this.props.getParkingPending(this.props.location)
+    this.setState({show: true})
+  }
+
 
     render() {
       return (
@@ -20,7 +27,14 @@ class MainPage extends Component {
                     <Text>Welcome to Parccc</Text>
                     <View>
                         <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}}></TextInput>
-                        <Button title="GO!" onPress={() => this.props.getParkingPending(this.state.location)}></Button>
+                        <Button title="GO!" onPress={() => this.test()}></Button>
+                        {this.props.parkingOptions[0].location ? (
+                          <Text>Hola</Text>)
+                          : null
+                        }
+                        {/*<Text>{this.props.parkingOptions && this.props.parkingOptions[0].location}</Text>*/}
+                        <Text>{this.state.show ? 'hola' : 'no bueno'}</Text>
+                        
                     </View>
                     
                     
@@ -40,10 +54,16 @@ class MainPage extends Component {
     },
   });
   
+  const mapStateToProps = state => {
+    return {
+        parkingOptions: state.parking.parkingOptions
+    }
+  }
+  
   const mapDispatchToProps = dispatch => {
     return {
         getParkingPending: (location) => dispatch(actions.getParkingPending(location))
     };
 };
 
-export default connect(null, mapDispatchToProps)(MainPage)
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage)
