@@ -5,8 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider, connect } from 'react-redux';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
-import WelcomePage from "./containers/LandingPage/LandingPage";
-import Mainpage from './containers/mainPage/mainPage'
+import ParkingNavigator from './navigation/parkingNavigator'
 
 const client = axios.create({
   baseURL: 'https://api.github.com',
@@ -20,9 +19,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <View>
-          <Mainpage/>
-        </View>
+        <ParkingNavigator/>
       </Provider>
     );
   } 

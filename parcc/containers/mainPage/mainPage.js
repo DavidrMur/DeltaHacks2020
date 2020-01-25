@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { TextInput, StyleSheet, Text, View, ImageBackground, Image, Button} from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-
+import {AppLoading} from 'expo';
 
 class MainPage extends Component {
-    
+    advanceFunction=()=>{
+        this.props.getParkingPending()
+        this.props.navigation.navigate("parkingSpots")
+    }
     render() {
-      console.log('beep boop');
       return (
         <View>
             <ImageBackground source={require('../../assets/mainPageImage.png')} style={{width: '100%', height: '100%'}}>
@@ -18,7 +20,7 @@ class MainPage extends Component {
                 <View style={styles.container}>
                     <View style={{flexDirection:"row"}}>
                         <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
-                        <Button title="GO!" onPress={() => this.props.getParkingPending()}></Button>
+                        <Button title="GO!" onPress={() => this.advanceFunction()}></Button>
                     </View>
                     
                     
