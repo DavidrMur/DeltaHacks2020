@@ -7,9 +7,7 @@ class LandingPage extends Component {
     render() {
       return (
         <View>
-            <Text style={styles.container}>Welcome to Parcc</Text>
-            <Text style={styles.container}>Welcome to Parcc</Text>
-            
+            <Text style={styles.heading}>Welcome to Parcc</Text>
         </View>
         
       );
@@ -19,9 +17,14 @@ class LandingPage extends Component {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor: "pink",
       alignItems: 'center',
       justifyContent: 'center',
     },
+    heading: {
+        fontFamily: "HelveticaNeue-Bold",
+        fontSize: 32
+    }
   });
   
 
