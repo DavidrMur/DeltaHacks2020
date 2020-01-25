@@ -6,11 +6,22 @@ import {AppLoading} from 'expo';
 
 class MainPage extends Component {
     state={
-        address:"HI"
+        address:"",
+        invalid:true
     }
     advanceFunction=()=>{
         this.props.getParkingPending(this.state.address)
         this.props.navigation.navigate("parkingSpots")
+    }
+    changeHandler=(event)=>{
+        this.setState({address:event.nativeEvent.text},()=>{
+            if(!this.state.address.replace(/\s/g, '').length){
+                this.setState({invalid:true})
+            }else{
+                this.setState({invalid:false})
+            }
+        })
+        // console.log(typeof(this.state.address))
     }
     render() {
       return (
@@ -22,8 +33,8 @@ class MainPage extends Component {
             </View>
                 <View style={styles.container}>
                     <View style={{flexDirection:"row"}}>
-                        <TextInput onChange={(event)=>this.setState({address:event.nativeEvent.text})}placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
-                        <Button title="GO!" onPress={() => this.advanceFunction()}></Button>
+                        <TextInput onChange={(event)=>this.changeHandler(event)}placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
+                        <Button title="GO!" disabled={this.state.invalid} onPress={() => this.advanceFunction()}></Button>
                     </View>
                     
                     
