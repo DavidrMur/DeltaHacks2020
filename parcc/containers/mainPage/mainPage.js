@@ -9,13 +9,14 @@ class MainPage extends Component {
     super(props);
     
     this.state = {
-      show: false
+      show: false,
+      address: 'HI'
     }
  }
 
 
     advanceFunction=()=>{
-        this.props.getParkingPending();
+        this.props.getParkingPending(this.state.address)
         this.props.navigation.navigate("parkingSpots")
     }
     render() {
@@ -28,7 +29,7 @@ class MainPage extends Component {
             </View>
                 <View style={styles.container}>
                     <View style={{flexDirection:"row"}}>
-                        <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
+                        <TextInput onChange={(event)=>this.setState({address:event.nativeEvent.text})}placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
                         <Button title="GO!" onPress={() => this.advanceFunction()}></Button>
                     </View>
                     
