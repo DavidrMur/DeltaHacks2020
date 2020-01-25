@@ -10,6 +10,7 @@ import axiosMiddleware from 'redux-axios-middleware';
 import createSagaMiddleware from 'redux-saga';
 import WelcomePage from "./containers/LandingPage/LandingPage";
 import Mainpage from './containers/mainPage/mainPage'
+import ParkingNavigator from './navigation/parkingNavigator'
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -26,9 +27,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <View>
-          <Mainpage/>
-        </View>
+        <ParkingNavigator/>
       </Provider>
     );
   } 

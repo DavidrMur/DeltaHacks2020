@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TextInput, StyleSheet, Text, View, ImageBackground, Image, Button} from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-
+import {AppLoading} from 'expo';
 
 class MainPage extends Component {
   constructor(props) {
@@ -12,29 +12,36 @@ class MainPage extends Component {
       show: false
     }
  }
-  test = () => {
-    this.props.getParkingPending(this.props.location)
-    this.setState({show: true})
-  }
 
 
+    advanceFunction=()=>{
+        this.props.getParkingPending()
+        this.props.navigation.navigate("parkingSpots")
+    }
     render() {
       return (
         <View>
             <ImageBackground source={require('../../assets/mainPageImage.png')} style={{width: '100%', height: '100%'}}>
+            <View style={styles.header}>
+                <Image source={require('../../assets/logo.png')}   style={{width: 150, height: 150}}/>
+                <Text style={styles.heading}>Welcome to Parccc</Text>
+            </View>
                 <View style={styles.container}>
                 <Image source={require('../../assets/logo.png')}   style={{width: 100, height: 100}}/>
                     <Text>Welcome to Parccc</Text>
-                    <View>
+                    {/*<View>
                         <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}}></TextInput>
                         <Button title="GO!" onPress={() => this.test()}></Button>
                         {this.props.parkingOptions[0].location ? (
                           <Text>Hola</Text>)
                           : null
                         }
-                        {/*<Text>{this.props.parkingOptions && this.props.parkingOptions[0].location}</Text>*/}
+                        {<Text>{this.props.parkingOptions && this.props.parkingOptions[0].location}</Text>}
                         <Text>{this.state.show ? 'hola' : 'no bueno'}</Text>
-                        
+                      */} 
+                    <View style={{flexDirection:"row"}}>
+                        <TextInput placeholder="Please Enter Your Address:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
+                        <Button title="GO!" onPress={() => this.advanceFunction()}></Button>
                     </View>
                     
                     
@@ -48,10 +55,20 @@ class MainPage extends Component {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flexDirection: "column",
+      flex:1,
       alignItems: 'center',
-      justifyContent: 'center',
     },
+    heading: {
+        fontFamily: "HelveticaNeue-Bold",
+        fontSize: 32,
+    },
+    header:{
+        flexDirection: "column",
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center'
+    }
   });
   
   const mapStateToProps = state => {
