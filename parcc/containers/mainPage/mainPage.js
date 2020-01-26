@@ -17,6 +17,7 @@ class MainPage extends Component {
 
 
     advanceFunction=()=>{
+        this.props.setAddress(this.state.address)
         this.props.getParkingPending(this.state.address)
         this.props.navigation.navigate("parkingSpots")
     }
@@ -35,7 +36,7 @@ class MainPage extends Component {
         <View>
             <ImageBackground source={require('../../assets/mainPageImage.png')} style={{width: '100%', height: '100%'}}>
             <View style={styles.header}>
-                <Image source={require('../../assets/logo.png')}   style={{width: 150, height: 150}}/>
+                <Image source={require('../../assets/logotransp.png')}   style={{width: 150, height: 150}}/>
                 <Text style={styles.heading}>Welcome to Parccc</Text>
             </View>
                 <View style={styles.container}>
@@ -79,6 +80,7 @@ class MainPage extends Component {
   
   const mapDispatchToProps = dispatch => {
     return {
+        setAddress: (address) => dispatch(actions.setAddress(address)),
         getParkingPending: (location) => dispatch(actions.getParkingPending(location))
     };
 };

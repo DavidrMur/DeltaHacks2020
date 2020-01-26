@@ -13,3 +13,10 @@ export const setParkingOptions = payload => {
         payload: payload
     }
 }
+
+export const setAddress = payload => {
+    return {
+        type: actionTypes.SET_ADDRESS,
+        payload: payload
+    }
+}

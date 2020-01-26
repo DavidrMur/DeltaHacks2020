@@ -1,4 +1,5 @@
 export {
     getParkingPending,
-    setParkingOptions
+    setParkingOptions,
+    setAddress
 } from './parking';
