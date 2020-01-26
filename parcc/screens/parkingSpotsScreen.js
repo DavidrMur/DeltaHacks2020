@@ -28,6 +28,8 @@ class parkingSpotsScreen extends Component{
         }
     render() {
         //this.rounder()
+        //let locations = (<ActivityIndicator size="large" style={styles.container}></ActivityIndicator>);
+
         let locations = null;
         if (this.props.parkingOptions[0] !== null) {
             locations= (         
@@ -44,7 +46,7 @@ class parkingSpotsScreen extends Component{
                 <View style={styles.screen}>
                     <Text style={styles.heading}>Here are your potential spots from: {this.props.address} with {this.state.weather} weather at {this.state.temperature} degrees celsius {this.state.camOut}</Text>
                     <ScrollView style={{alignSelf:"stretch",}}>
-                        {locations}
+                        {this.props.parkingOptions[0] ? locations :<ActivityIndicator size="large" style={styles.container}></ActivityIndicator>}
                     </ScrollView>
                     
                 </View>
@@ -63,7 +65,13 @@ const styles=StyleSheet.create({
     heading: {
         fontFamily: "HelveticaNeue-Bold",
         fontSize: 28,
-    },
+    },container: {
+        flexDirection:"column",
+        marginTop:200,
+        paddingLeft:2,
+        alignContent:"center",
+        justifyContent:"flex-end",
+    }
 });
 const mapStateToProps = state => {
     return {
