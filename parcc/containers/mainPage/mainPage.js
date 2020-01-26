@@ -38,6 +38,7 @@ class MainPage extends Component {
             <View style={styles.header}>
                 <Image source={require('../../assets/logotransp.png')}   style={{width: 150, height: 150}}/>
                 <Text style={styles.heading}>Welcome to Parccc</Text>
+                <Text style={styles.infoText}>Enter an address below to find weather-appropriate activites near your destination!</Text>
             </View>
                 <View style={styles.container}>
                     <View style={{flexDirection:"row"}}>
@@ -69,7 +70,13 @@ class MainPage extends Component {
         flex:1,
         justifyContent:'center',
         alignItems:'center'
+    },
+    infoText:{
+        flexDirection:"row",
+        textAlign:"center",
+        color:"#4d4d4d"
     }
+    
   });
   
   const mapStateToProps = state => {
