@@ -5,9 +5,9 @@ const location=(props)=>{
     addressURL+=props.address
     return(
         <TouchableOpacity style={styles.container} onPress={()=>{Linking.openURL(addressURL)}}>
-            <Text style={styles.title} >Alexander Park</Text>
+            <Text style={styles.title} >{props.title}</Text>
             <Text style={styles.words}>{props.address}</Text>
-            <Text style={styles.words}>{props.distance} km</Text>
+            <Text style={styles.words}>{props.distance} km away</Text>
         </TouchableOpacity>
     );
 
