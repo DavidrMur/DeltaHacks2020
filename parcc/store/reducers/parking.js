@@ -7,11 +7,14 @@ const initialState = {
 };
 
 const setAddress = (state, action) => {
+    const tempAddress = action.payload;
+    tempAddress.replace(/ /g,'-');
+    console.log("tempaddress");
+    console.log(tempAddress);
     return {...state, address: action.payload}
 }
 
 const setParkingOptions = (state, action) => {
-    console.log(action);
     return {...state, parkingOptions: action.payload}
 }
 

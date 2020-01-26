@@ -10,8 +10,7 @@ class parkingSpotsScreen extends Component{
     state={
         temperature:null,
         weather:null,
-        loading:true,
-        output:[{'Title': 'Westoby (Olympic) Arena', 'Address': '70 Olympic Dr, Dundas, ON L9H 7P5, Canada', 'Latitude': 43.27287723029571, 'Longitude': -79.93426208848754, 'Distance': 1.6379435388952792}, {'Title': 'Westdale Library', 'Address': '955 King St W, Hamilton, ON L8S 1K9, Canada', 'Latitude': 43.26256862152026, 'Longitude': -79.903476765601, 'Distance': 1.3652771828922607}, {'Title': 'Hamilton Military Museum', 'Address': '610 York Blvd, Hamilton, ON L8R 3H1, Canada', 'Latitude': 43.2681814437121, 'Longitude': -79.88471105109906, 'Distance': 2.9626710559728493}, {'Title': 'David Braley Athletic Centre', 'Address': 'David Braley Athletic Centre, 1280 E Main St, Hamilton, ON L8S 4E8, Canada', 'Latitude': 43.26504364332839, 'Longitude': -79.91616538953649, 'Distance': 0.456774159586171}]
+        loading:true        
     }
     componentDidMount() {
         axios.get(`https://api.darksky.net/forecast/8b486e7acbd606454f4a0f8f95b56886/43.263444914224245,-79.91824930126315`)
@@ -23,25 +22,27 @@ class parkingSpotsScreen extends Component{
           })
       }
     rounder=()=>{
-        this.state.output.forEach(element => {
-            element.Distance=Math.round(element.Distance*100)/100
-        });
+        // this.state.output.forEach(element => {
+        //     element.Distance=Math.round(element.Distance*100)/100
+        // });
         }
     render() {
-        this.rounder()
-
-        locations=         
-        this.state.output.map(loc=>(
-            <Location
-            title={loc.Title}
-            address={loc.Address}
-            distance={loc.Distance}/>
-        ))
+        //this.rounder()
+        let locations = null;
+        if (this.props.parkingOptions[0] !== null) {
+            locations= (         
+            this.props.parkingOptions.map(loc=>(
+                <Location
+                title={loc.Title}
+                address={loc.Address}
+                distance={loc.Distance}/>
+            )))
+        }
 
         return(
             <ImageBackground source={require('../assets/mainPageImage.png')} style={{width: '100%', height: '100%'}}>
                 <View style={styles.screen}>
-                    <Text style={styles.heading}>Here are your potential spots from: {this.props.address} with {this.state.weather} weather at {this.state.temperature} degrees celsius</Text>
+                    <Text style={styles.heading}>Here are your potential spots from: {this.props.address} with {this.state.weather} weather at {this.state.temperature} degrees celsius {this.state.camOut}</Text>
                     <ScrollView style={{alignSelf:"stretch",}}>
                         {locations}
                     </ScrollView>
