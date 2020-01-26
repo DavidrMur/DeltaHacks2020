@@ -1,26 +1,32 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet} from 'react-native';
+import {TouchableOpacity, Text, StyleSheet,Linking} from 'react-native';
 const location=(props)=>{
+    let addressURL="https://www.google.com/maps?daddr="
+    addressURL+=props.address
     return(
-        <View style={styles.container}>
-            <Text style={styles.title}>Alexander Park</Text>
+        <TouchableOpacity style={styles.container} onPress={()=>{Linking.openURL(addressURL)}}>
+            <Text style={styles.title} >Alexander Park</Text>
             <Text style={styles.words}>{props.address}</Text>
-            <Text style={styles.words}>{props.distance} km from</Text>
-        </View>
+            <Text style={styles.words}>{props.distance} km</Text>
+        </TouchableOpacity>
     );
 
 }
 const styles = StyleSheet.create({
     container: {
-      borderWidth:3,
-      borderColor:"#e6e6e6",
+      backgroundColor:"white",
+      borderTopWidth:3,
+      borderBottomWidth:3,
+      borderColor:"white",
+      borderRadius:10,
       margin:3,
+      paddingLeft:2,
       justifyContent:"flex-start",
   },title:{
       fontFamily:"AvenirNext-DemiBold",
       fontSize:26
   },words:{
-      fontSize:14,
+      fontSize:18,
       marginTop:3
   }
 

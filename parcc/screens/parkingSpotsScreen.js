@@ -19,8 +19,7 @@ class parkingSpotsScreen extends Component{
         return(
     <ImageBackground source={require('../assets/mainPageImage.png')} style={{width: '100%', height: '100%'}}>
         <View style={styles.screen}>
-            <Text onPress={()=>{Linking.openURL("https://www.google.com/maps?daddr=26 Haddon Avenue North+to:7 Delbrook Court")}}>Hi</Text>
-            <Text style={styles.heading}>Here are your potential spots: {this.props.address}</Text>
+            <Text style={styles.heading}>Here are your potential spots from: {this.props.address}</Text>
             <ScrollView style={{alignSelf:"stretch",}}>
                 {locations}
             </ScrollView>
@@ -40,7 +39,7 @@ const styles=StyleSheet.create({
     },
     heading: {
         fontFamily: "HelveticaNeue-Bold",
-        fontSize: 32,
+        fontSize: 30,
     },
 });
 
