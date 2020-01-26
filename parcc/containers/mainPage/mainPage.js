@@ -3,6 +3,7 @@ import { TextInput, StyleSheet, Text, View, ImageBackground, Image, Button} from
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import {AppLoading} from 'expo';
+import { webWeights } from 'react-native-typography' 
 
 class MainPage extends Component {
   constructor(props) {
@@ -44,9 +45,10 @@ class MainPage extends Component {
             </View>
                 <View style={styles.container}>
                     <View style={{flexDirection:"row"}}>
-                        <TextInput onChange={(event)=>this.changeHandler(event)}placeholder="Please Enter Your Destination:" style={{borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
-                        <Button title="GO!" disabled={this.state.invalid} onPress={() => this.advanceFunction()}></Button>
+                        <TextInput onChange={(event)=>this.changeHandler(event)}placeholder="Please Enter Your Destination" style={{...webWeights.medium,borderBottomColor:"white", borderBottomWidth:2, padding:10}} autoCompleteType="street-address"></TextInput>
+                        <Button title="GO" style={{borderRadius:3, backgroundColor:'green', left:10}} disabled={this.state.invalid} onPress={() => this.advanceFunction()}></Button>
                     </View>
+                    
                     
                     
                 </View>
@@ -59,24 +61,44 @@ class MainPage extends Component {
 
   const styles = StyleSheet.create({
     container: {
+      width: 280,
+      height: 70,
+      position: 'absolute',
+      bottom: 300,
+      left: 50,
+      backgroundColor: 'white',
+      borderRadius: 12,
+      padding: 5,
+      shadowColor: 'black',
+      shadowOpacity: 0.5,
+      shadowRadius: 3,
+      shadowOffset: {
+          height: 0,
+          width: 0
+      },
+      elevation: 2,
       flexDirection: "column",
-      flex:1,
       alignItems: 'center',
+      backgroundColor: 'white',
+      borderRadius: 50,
+      margin: 8,
+      justifyContent: 'center',
     },
     heading: {
-        fontFamily: "HelveticaNeue-Bold",
+        ...webWeights.medium,
         fontSize: 32,
     },
     header:{
         flexDirection: "column",
-        flex:1,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        margin: 20
     },
     infoText:{
         flexDirection:"row",
         textAlign:"center",
-        color:"#4d4d4d"
+        color:"#4d4d4d",
+        fontFamily: "Georgia"
     }
     
   });
