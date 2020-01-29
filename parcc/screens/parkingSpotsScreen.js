@@ -22,16 +22,16 @@ class parkingSpotsScreen extends Component{
           })
       }
     rounder=()=>{
-        // this.state.output.forEach(element => {
-        //     element.Distance=Math.round(element.Distance*100)/100
-        // });
+        this.props.parkingOptions.forEach(element => {
+            element.Distance=Math.round(element.Distance*100)/100
+        });
         }
     render() {
-        //this.rounder()
         //let locations = (<ActivityIndicator size="large" style={styles.container}></ActivityIndicator>);
 
         let locations = null;
         if (this.props.parkingOptions[0] !== null) {
+            this.rounder()
             locations= (         
             this.props.parkingOptions.map(loc=>(
                 <Location
