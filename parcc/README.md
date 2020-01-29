@@ -1,7 +1,7 @@
 # Intro
 Parcc is an app which suggests acitivites to do based on the conditions of the day. It aims to make planning days easier by taking into account multiple factors, which reduces the decision making on the users. The full pitch and presentation can be found in the filers named <b>deltaPARCC.pptx</b>. Parcc was developed at DeltaHacks 6 - 2020 with the following hackers:
 
-<a href = "https://github.com/ryyvntong"> Cameron Macdonald</a> &emsp;
+<a href = "https://github.com/macdoc26"> Cameron Macdonald</a> &emsp;
 <a href = "https://github.com/davidrmur">David Murga </a> &emsp;
 <a href = "https://github.com/ryyvntong">Ryan Tong</a> 
 </div>
